@@ -1,0 +1,41 @@
+name: Forecasting checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    env:
+      MPLBACKEND: Agg
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install the tested environment
+        run: |
+          python -m pip install -r requirements.lock
+          python -m pip install --no-deps -e .
+      - name: Run regression tests
+        run: python -m pytest
+      - name: Run a small rolling backtest
+        run: python time_series_forecasting.py --dataset crypto --models naive arima prophet boosted --quick --output outputs/ci
+      - name: Execute the case-study notebooks
+        run: python scripts/build_notebooks.py --execute
+      - uses: actions/upload-artifact@v4
+        with:
+          name: forecasting-checks-python-${{ matrix.python-version }}
+          path: |
+            outputs/ci/
+            preview/
+          retention-days: 7
