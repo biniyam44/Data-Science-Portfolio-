@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "biniyam-forecasting"
+version = "0.1.0"
+description = "Historical price and household-energy forecasting experiments"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "numpy==2.2.6",
+  "pandas==2.2.3",
+  "scipy==1.16.3",
+  "scikit-learn==1.6.1",
+  "statsmodels==0.14.6",
+  "prophet==1.1.7",
+  "cmdstanpy==1.2.5",
+  "matplotlib==3.10.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.3.5",
+  "nbformat==5.10.4",
+  "nbclient==0.10.2",
+  "nbconvert==7.16.6",
+  "ipykernel==6.29.5",
+]
+
+[tool.setuptools.packages.find]
+include = ["forecasting*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
