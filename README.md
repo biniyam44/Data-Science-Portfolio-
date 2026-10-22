@@ -1,61 +1,72 @@
-# Time Series Forecasting Project
+# Forecasting studies
 
-## Business Objective
-Develop a robust time‑series forecasting model to accurately predict [e.g. weekly sales/demand] over the next horizon, enabling stakeholders to optimize inventory planning, reduce stockouts, and improve operational efficiency.
+Two historical forecasting projects: daily digital-currency prices and hourly appliance energy use. Both use the same evaluation code so that a more complicated model has to earn its place against simple forecasts.
 
-## Project Overview
-This project explores classical (ARIMA) and modern (Prophet) forecasting techniques applied to a historical time series dataset. You’ll find:
-- A Jupyter notebook (`Time_Series_Forecasting.ipynb`) showcasing data cleaning, model building, evaluation, and visualization.
-- A standalone Python script (`time_series_forecasting.py`) that wraps the core pipeline into reusable functions.
+The price study extends the original ARIMA and Prophet notebook. The energy study asks how well recent consumption predicts the next hour, six hours ahead, and the following day in one measured building. It is an example of short-term demand planning, not a claim about electricity savings or a deployed service.
 
-## Repository Structure
+## Run locally
+
+Use Python 3.11. The commands below run from this repository's root.
+
+```bash
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.lock
+python -m pip install --no-deps -e .
+python -m pytest
 ```
-   ├── README.md
-   ├── Time\_Series\_Forecasting.ipynb    # Exploratory analysis & modeling walkthrough
-   ├── time\_series\_forecasting.py       # Production‑ready forecasting module
-   └── data/dc.csv                         # CSV File 
+
+Run either complete comparison:
+
+```bash
+python time_series_forecasting.py --dataset crypto --output results/crypto
+python time_series_forecasting.py --dataset energy --output results/energy
 ```
 
-## Installation
-1. Clone the repo:
-   git clone [https://github.com/Naphi44/Data-Science-Portfolio-.git]
-   cd Data-Science-Portfolio-
+For a shorter development run, select fewer models and origins. These results are smoke checks, not the published comparison:
 
-2. Create & activate a virtual environment:
+```bash
+python time_series_forecasting.py --dataset energy --models naive seasonal_naive boosted --quick --output outputs/energy-smoke
+python time_series_forecasting.py --help
+```
 
-   python3 -m venv venv
-   source venv/bin/activate    # macOS/Linux
-   venv\Scripts\activate       # Windows
-   
+Each run writes `predictions.csv`, `metrics.csv`, `splits.json`, and `summary.json`. The split record and source hashes make the evaluation inputs inspectable. Re-running into `results/` replaces that project's saved results; use `outputs/` for experiments you do not intend to publish.
 
-3. Install dependencies
-   pip install pandas numpy matplotlib statsmodels prophet
-## Usage
+## Read the studies
 
-### Jupyter Notebook
+- [Daily price forecasts](Time_Series_Forecasting.ipynb)
+- [Hourly appliance-energy forecasts](Energy_Demand_Forecasting.ipynb)
+- [Evaluation decisions and limitations](docs/methodology.md)
+- [Dataset sources and preparation](data/README.md)
 
-1. Launch:
-   jupyter notebook Time_Series_Forecasting.ipynb
+Rebuild and execute both notebooks from the saved result files:
 
-2. Step through the cells to:
+```bash
+python scripts/build_notebooks.py --execute
+```
 
-   * Load and visualize the data
-   * Perform stationarity checks and differencing
-   * Fit ARIMA and Prophet models
-   * Compare forecasts against a test set
+The notebooks inspect the source data and saved forecasts, calculate comparisons, and draw the charts. They do not quietly retrain the models when opened. Run the forecasting commands first when changing a model or dataset.
 
-### Python Module
+## What is compared
 
-You can also run the script directly:
+The comparison includes last-value, drift and seasonal-naive baselines, ARIMA, Prophet, and gradient-boosted trees. Models use the same forecast origins and target dates. Tree inputs are historical observations and calendar features available at forecast time. The price model does not use the target's converted-currency column or future prices and volumes.
 
-python time_series_forecasting.py \
-  --data-path data/dc.csv \
-  --model arima \
-  --forecast-horizon 12
+The time series is divided into an initial training period, validation, interval calibration, and a final test period. The final period is excluded from model selection and interval calibration. Evaluation is rolling: after a past observation becomes available, later forecast origins can train on it. This is not a single forecast made before the entire test period.
 
-Use `--help` to explore all available options.
+The projects report error in original units, percentage error, scaled error, and measured coverage of nominal 80% intervals. No model is assumed to beat a baseline. A lower test error is evidence for this dataset and period, not a promise of future performance.
 
-## Results & Visualization
+## Data and scope
 
-* Forecast plots are saved in the `outputs/` folder.
-* Metrics (MAE, RMSE) printed to console for quick comparison.
+The existing price file has 1,000 daily observations from May 2018 to January 2021. Its original Kaggle link is recorded, but the upstream redistribution license has not been confirmed. Do not treat this repository as a new license grant for that file.
+
+The energy file contains 3,289 complete hours derived from the UCI Appliances Energy Prediction dataset, attributed to Luis Candanedo and available under CC BY 4.0. Preparation validates the pinned source checksum, the ten-minute clock, and complete hourly groups. It excludes the final partial hour, rather than treating missing readings as zero. The dataset covers one building for about four and a half months, so it cannot establish annual seasonality or performance across buildings.
+
+## Portfolio presentation
+
+The corresponding interactive case study is prepared for [Biniyam Berga's portfolio](https://biniyam44.github.io/forecasting/). To copy checked results into an existing local checkout of that site:
+
+```bash
+python scripts/export_portfolio.py --destination ../biniyam-berga
+```
+
+The export checks source hashes, forecast keys, and metric calculations before copying the evaluation files. It does not push or deploy either repository. Code, data provenance, and downloadable evaluation files remain the source of evidence behind the presentation.
