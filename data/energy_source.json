@@ -1,0 +1,34 @@
+{
+  "dataset": "Appliances Energy Prediction",
+  "creator": "Luis Candanedo",
+  "citation": "Candanedo, L. (2017). Appliances Energy Prediction [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5VC8G.",
+  "source_url": "https://archive.ics.uci.edu/ml/machine-learning-databases/00374/energydata_complete.csv",
+  "dataset_url": "https://archive.ics.uci.edu/dataset/374/appliances+energy+prediction",
+  "doi": "10.24432/C5VC8G",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "raw_sha256": "2820bf712ad0275cb18b85a05250926100d8e65ebb9f4d2d016ca91ea152a25d",
+  "raw_rows": 19735,
+  "raw_start": "2016-01-11T17:00:00",
+  "raw_end": "2016-05-27T18:00:00",
+  "derived_sha256": "e2f8bb18ef664bbd1120299b24b80e9895aea9e0b71cb53338ac8b473746466b",
+  "derived_file": "appliances_hourly.csv",
+  "derived_rows": 3289,
+  "derived_start": "2016-01-11T17:00:00",
+  "derived_end": "2016-05-27T17:00:00",
+  "target": "Appliances",
+  "source_unit": "Wh per ten-minute reading",
+  "derived_unit": "kWh per hour",
+  "aggregation": "Sum six distinct ten-minute Appliances readings per hour, divide by 1000.",
+  "timestamp_semantics": "Hour start in the source's naive local clock. No UTC conversion or daylight-saving adjustment is inferred. The value is known after that hour.",
+  "excluded_partial_edge_hours": [
+    {
+      "timestamp": "2016-05-27T18:00:00",
+      "readings": 1
+    }
+  ],
+  "missing_interior_intervals": 0,
+  "duplicate_timestamps": 0,
+  "preparation_script": "scripts/prepare_energy.py",
+  "scope": "One low-energy building, about 4.5 months in 2016; not whole-building load."
+}
