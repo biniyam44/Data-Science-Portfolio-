@@ -1,0 +1,16 @@
+*
+!requirements-service.lock
+!forecasting/
+!forecasting/*.py
+!scripts/
+!scripts/*.py
+!data/
+!data/dc.csv
+!data/appliances_hourly.csv
+!results/
+!results/crypto/
+!results/crypto/*
+!results/energy/
+!results/energy/*
+!docs/
+!docs/methodology.md

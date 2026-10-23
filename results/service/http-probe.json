@@ -1,0 +1,36 @@
+{
+  "recorded_at_utc": "2026-10-23T04:58:19.728344+00:00",
+  "image": "biniyam-energy-service:local",
+  "image_id": "sha256:9bd87c7df1405befa630c1528f0e5322990fe2b30f3f343325216c5e44d7b9ec",
+  "runtime": {
+    "uid": 10001,
+    "gid": 10001,
+    "system": "Linux",
+    "architecture": "aarch64",
+    "python": "3.11.17"
+  },
+  "health": "passed",
+  "authenticated_readiness": {
+    "status": "ready",
+    "model_version": "energy-c60647fd1fab3be6bd0aff54"
+  },
+  "unauthenticated_readiness_status": 401,
+  "root_filesystem": "read-only checks passed",
+  "model_mount_read_only": true,
+  "dropped_capabilities": [
+    "ALL"
+  ],
+  "no_new_privileges": [
+    "no-new-privileges:true"
+  ],
+  "forecast_horizons": [
+    1,
+    6,
+    24
+  ],
+  "analyst_mode": "deterministic-evidence",
+  "analyst_citations": 9,
+  "drift_available": true,
+  "paid_calls": 0,
+  "scope": "One local container and loopback requests. No external deployment or paid model request."
+}

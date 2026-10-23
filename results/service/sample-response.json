@@ -1,0 +1,38 @@
+{
+  "version": "energy-c60647fd1fab3be6bd0aff54",
+  "origin": "2016-04-30T07:00:00",
+  "training_cutoff": "2016-04-02T21:00:00",
+  "calibration_cutoff": "2016-04-30T07:00:00",
+  "unit": "kWh per hour",
+  "interval_level": 0.8,
+  "forecasts": [
+    {
+      "horizon_hours": 1,
+      "target_timestamp": "2016-04-30T08:00:00",
+      "prediction": 0.5577034195253929,
+      "lower": 0.19894638868055692,
+      "upper": 0.9164604503702289,
+      "model": "boosted"
+    },
+    {
+      "horizon_hours": 6,
+      "target_timestamp": "2016-04-30T13:00:00",
+      "prediction": 0.6958307385219302,
+      "lower": 0.3619778806464403,
+      "upper": 1.0296835963974202,
+      "model": "boosted"
+    },
+    {
+      "horizon_hours": 24,
+      "target_timestamp": "2016-05-01T07:00:00",
+      "prediction": 0.37,
+      "lower": 0.0,
+      "upper": 1.04,
+      "model": "naive"
+    }
+  ],
+  "interval_caveat": "Empirical historical residual intervals, not a coverage guarantee under dependence or drift.",
+  "request_id": "d47b4788477b47e68f2f39a8c40a9fc5",
+  "latency_ms": 37.74879200000214,
+  "created": true
+}

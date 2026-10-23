@@ -1,0 +1,60 @@
+{
+  "mode": "historical local replay, not live telemetry",
+  "recorded_at_utc": "2026-10-23T04:56:07.966995+00:00",
+  "selection": "Frozen service model chosen using validation only, distinct from rolling study models.",
+  "report": {
+    "forecast_requests": 26,
+    "input_failures": {},
+    "pending_outcomes": 0,
+    "missing_completed_outcomes": 0,
+    "outcome_as_of": "2016-05-27T18:00:00",
+    "missingness_note": "Without an explicit source-clock as_of, unobserved targets are pending, not classified as overdue.",
+    "latency_ms": {
+      "p50": 16.495249466970563,
+      "p95": 24.773645971436054
+    },
+    "performance": [
+      {
+        "version": "energy-c60647fd1fab3be6bd0aff54",
+        "horizon_hours": 1,
+        "forecast_count": 26,
+        "observed_count": 26,
+        "mae": 0.23639501429672524,
+        "rmse": 0.4032138806103993,
+        "interval_coverage": 0.8076923076923077,
+        "mean_interval_width": 0.7023247897278709
+      },
+      {
+        "version": "energy-c60647fd1fab3be6bd0aff54",
+        "horizon_hours": 6,
+        "forecast_count": 26,
+        "observed_count": 26,
+        "mae": 0.23816489513722,
+        "rmse": 0.3483879606728913,
+        "interval_coverage": 0.7307692307692307,
+        "mean_interval_width": 0.6601305871411423
+      },
+      {
+        "version": "energy-c60647fd1fab3be6bd0aff54",
+        "horizon_hours": 24,
+        "forecast_count": 26,
+        "observed_count": 26,
+        "mae": 0.15653846153846154,
+        "rmse": 0.22691069066586866,
+        "interval_coverage": 0.9615384615384616,
+        "mean_interval_width": 1.1192307692307693
+      }
+    ],
+    "latest_drift": {
+      "available": true,
+      "interpretation": "Descriptive shift only. Seasonality and this single-building sample limit interpretation.",
+      "mean": 0.5797619047619048,
+      "mean_change": -0.004683102840730702,
+      "outside_training_range_fraction": 0.0,
+      "population_stability_index": 0.03471016992581812,
+      "reference_mean": 0.5844450076026355,
+      "window_rows": 168
+    },
+    "unit": "kWh per hour"
+  }
+}

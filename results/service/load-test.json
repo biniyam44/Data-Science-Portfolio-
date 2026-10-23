@@ -1,0 +1,56 @@
+{
+  "kind": "local HTTP load test",
+  "recorded_at_utc": "2026-10-23T04:58:19.726836+00:00",
+  "platform": "Darwin arm64",
+  "python": "3.11.15",
+  "model_version": "energy-c60647fd1fab3be6bd0aff54",
+  "requests": 20,
+  "concurrency": 4,
+  "warmup_requests_excluded": 1,
+  "successes": 20,
+  "failures": 0,
+  "elapsed_seconds": 1.0603084169561043,
+  "successful_requests_per_second": 18.862436325286644,
+  "latency_ms": {
+    "p50": 204.6764789847657,
+    "p95": 237.39260834408927
+  },
+  "request_sha256": "aa6bd197ce20d0a2588c5dc9a891c282eb626a1ff9f89132702f69449fbe6a01",
+  "status_codes": [
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200
+  ],
+  "limits": "One warmed process on one local machine; not internet latency or a production capacity claim.",
+  "deployment": {
+    "server_runtime": {
+      "uid": 10001,
+      "gid": 10001,
+      "system": "Linux",
+      "architecture": "aarch64",
+      "python": "3.11.17"
+    },
+    "server": "local Docker container",
+    "client_platform": "Darwin arm64",
+    "read_only_rootfs": true,
+    "model_mount_read_only": true,
+    "worker_processes": 1
+  }
+}
