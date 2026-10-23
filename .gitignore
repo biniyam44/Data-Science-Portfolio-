@@ -12,4 +12,10 @@ build/
 dist/
 .env
 .env.*
+artifacts/
+var/
+mlruns/
+*.db
+*.db-shm
+*.db-wal
 
