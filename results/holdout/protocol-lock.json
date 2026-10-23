@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "protocol_id": "household-replication-2010-v1",
+  "protocol_sha256": "0275658513bbb8ce15d31ea1f89743e589c3c970f4e25fcd627109e5f312e9d7",
+  "implementation_sha256": "de03c2e57a27cd3125ee37017728986ad6faed6fec86a954ba0b24dbea023002",
+  "workflow_sha256": {
+    "forecasting/holdout.py": "8b1ebc2fbc07521c1b214e627275e092a6bae1c3568c9db9f05a2e51ce1138ef",
+    "scripts/prepare_holdout.py": "84cd761632bc9b15f886f33291824b4792ba2c1c6e3d71c4c2fa0407aa9f1f0e",
+    "scripts/run_holdout.py": "818a78200360f4d7b4f414cd21583016c839a3b5d9db594ff7068762047657e1"
+  },
+  "model_parameters": {
+    "naive": {
+      "method": "last observed value"
+    },
+    "drift": {
+      "method": "last value plus full-history average change"
+    },
+    "seasonal_naive": {
+      "method": "repeat the last complete seasonal cycle"
+    },
+    "arima": {
+      "order": [
+        2,
+        1,
+        0
+      ],
+      "trend": "n"
+    },
+    "prophet": {
+      "growth": "linear",
+      "weekly_seasonality": true,
+      "yearly_seasonality": false,
+      "daily_seasonality": "hourly data only",
+      "uncertainty_samples": 0,
+      "seed": 42
+    },
+    "boosted": {
+      "estimator": "HistGradientBoostingRegressor",
+      "max_iter": 80,
+      "max_leaf_nodes": 15,
+      "early_stopping": false,
+      "random_state": 42,
+      "target": "future value minus value at issue time",
+      "strategy": "direct per horizon"
+    }
+  },
+  "locked_utc": "2026-10-23T04:32:22.522385+00:00",
+  "status": "locked before target download and measurement inspection",
+  "scope": "Local development record, not a third-party timestamp or proof of model-pretraining exclusion."
+}

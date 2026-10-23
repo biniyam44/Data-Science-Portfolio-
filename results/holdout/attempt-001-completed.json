@@ -1,0 +1,8 @@
+{
+  "completed_utc": "2026-10-23T04:35:32.086010+00:00",
+  "started_utc": "2026-10-23T04:34:36.967433+00:00",
+  "status": "completed",
+  "elapsed_seconds": 55.10478612501174,
+  "prediction_rows": 1080,
+  "summary_sha256": "833f0264c7af4ed9065934a00559af334d3cd4a12072400582b42048d0f9ef23"
+}

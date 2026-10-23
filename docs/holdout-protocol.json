@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "protocol_id": "household-replication-2010-v1",
+  "written_before_target_acquisition_utc": "2026-10-23T04:28:00+00:00",
+  "purpose": "Independent-dataset replication with a development-time lock, not future same-household confirmation or a claim about model pretraining exposure.",
+  "implementation_sha256": "de03c2e57a27cd3125ee37017728986ad6faed6fec86a954ba0b24dbea023002",
+  "source": {
+    "title": "Individual Household Electric Power Consumption",
+    "dataset_url": "https://archive.ics.uci.edu/dataset/235/individual+household+electric+power+consumption",
+    "download_url": "https://archive.ics.uci.edu/static/public/235/individual+household+electric+power+consumption.zip",
+    "zip_member": "household_power_consumption.txt",
+    "doi": "10.24432/C58K54",
+    "creators": ["Georges Hebrail", "Alice Berard"],
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "target": "Global_active_power",
+    "raw_unit": "minute-averaged kW",
+    "hourly_unit": "kWh",
+    "aggregation": "Sum the 60 finite nonnegative minute-averaged kW readings within an hour, divide by 60. Incomplete hours have no observed target."
+  },
+  "window": {
+    "start_inclusive": "2010-07-01T00:00:00",
+    "end_exclusive": "2010-11-01T00:00:00",
+    "clock": "Source-naive local clock, without inferred timezone or daylight-saving conversion."
+  },
+  "models": ["naive", "drift", "seasonal_naive", "arima", "prophet", "boosted"],
+  "horizons": [1, 6, 24],
+  "frequency": "h",
+  "seasonal_lag": 24,
+  "origin_step": 25,
+  "seed": 42,
+  "split_fractions": [0.4, 0.2, 0.2, 0.2],
+  "split_rule": "Floor calendar-hour row counts at 40%, 60%, and 80%, retaining missing hours in the calendar. Origins start one hour before each phase, advance 25 hours, and require every requested target to stay inside that phase.",
+  "missing_history": "At each origin, forward-fill incomplete hourly history from earlier complete hours only. No backward fill or future data. Remove only leading missing hours, then require 168 historical hourly rows. Record imputed-hour counts; models share identical filled history.",
+  "missing_targets": "Drop an origin for every model and horizon if any requested target hour is incomplete. Never score an imputed target. Record every excluded origin and its reason.",
+  "selection": "Minimum validation MAE separately per horizon, ties broken by model name; no model or parameter changes after results are observed.",
+  "interval_level": 0.8,
+  "interval_rule": "Absolute calibration residual at rank ceil((n+1)*0.8), frozen per model and horizon before test; require at least five retained calibration origins.",
+  "rolling_policy": "Refit at each origin using only history then available, including earlier observations in the test period. This is prequential evaluation, not a single frozen-origin forecast.",
+  "metrics": ["MAE", "RMSE", "MAPE with zero exclusions", "MASE with invalid-scale exclusions", "interval coverage", "interval width"],
+  "negative_forecasts": "Clip point forecasts and lower interval bounds at zero consistently with the frozen implementation.",
+  "failure_policy": "Any model error aborts the comparison instead of dropping that model or origin. Preserve the attempt record. Infrastructure retries must retain the same protocol, source bytes and implementation and be disclosed. Score-driven changes require a new protocol and cannot reuse these data as untouched."
+}

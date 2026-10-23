@@ -1,0 +1,8 @@
+{
+  "acquired_utc": "2026-10-23T04:34:19.414508+00:00",
+  "raw_sha256": "9f84b46ade8a2d8e1286ec4b2b6c2987a45a755c59f263be3b3b3d10dfbda3ff",
+  "raw_bytes": 20640916,
+  "source_url": "https://archive.ics.uci.edu/static/public/235/individual+household+electric+power+consumption.zip",
+  "protocol_sha256": "0275658513bbb8ce15d31ea1f89743e589c3c970f4e25fcd627109e5f312e9d7",
+  "protocol_locked_utc": "2026-10-23T04:32:22.522385+00:00"
+}
