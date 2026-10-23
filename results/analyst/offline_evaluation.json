@@ -1,0 +1,2332 @@
+{
+  "generated_at": "2026-10-23T04:54:40.452374+00:00",
+  "mode": "deterministic-evidence",
+  "llm_evaluation": false,
+  "provider_requests": 0,
+  "scope": "Offline routing, typed tools, checked citations, independent arithmetic and refusal fixtures. Not LLM quality, cost or prompt-injection robustness calibration.",
+  "fixture_sha256": "6aa28430eba8b92d9e0f0764e55f61781c2b6c928c73f41c8a03288a53c710b1",
+  "implementation_sha256": "437f85ea1524fba0ec9c3cd8e8abfd77a8355accec624afa115150dc85a976db",
+  "evaluation_sha256": "3542d4e21664de632dbf4489e13891b0dd63de5faada7124d208e0bcb92d2dec",
+  "cases": 26,
+  "passed": 26,
+  "latency_ms": {
+    "startup_validation": 232.848,
+    "median": 0.2415,
+    "answered_median": 2.544,
+    "refused_median": 0.028,
+    "max": 4.994
+  },
+  "estimated_cost_usd": null,
+  "results": [
+    {
+      "id": "energy_validation_best",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "Lowest measured MAE (energy, validation, 6-hour horizon): boosted, 0.307272 kWh per hour across 26 origins. Largest absolute errors: 2016-03-25T11:00:00: observed 3.12, forecast 0.821241, error 2.29876 kWh per hour; 2016-03-27T13:00:00: observed 0.41, forecast 1.31904, error 0.909041 kWh per hour; 2016-03-28T14:00:00: observed 1.58, forecast 0.918538, error 0.661462 kWh per hour. These are historical measurements, not evidence of future performance or a causal explanation of errors.",
+        "citations": [
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 39,
+            "line_end": 39,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "arima",
+              "horizon": 6
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 42,
+            "line_end": 42,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "boosted",
+              "horizon": 6
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 45,
+            "line_end": 45,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "drift",
+              "horizon": 6
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 48,
+            "line_end": 48,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "naive",
+              "horizon": 6
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 51,
+            "line_end": 51,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "prophet",
+              "horizon": 6
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 54,
+            "line_end": 54,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "seasonal_naive",
+              "horizon": 6
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 342,
+            "line_end": 342,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "boosted",
+              "horizon": 6,
+              "origin": "2016-03-25T05:00:00"
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 378,
+            "line_end": 378,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "boosted",
+              "horizon": 6,
+              "origin": "2016-03-27T07:00:00"
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 396,
+            "line_end": 396,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "boosted",
+              "horizon": 6,
+              "origin": "2016-03-28T08:00:00"
+            }
+          }
+        ],
+        "facts": {
+          "dataset": "energy",
+          "phase": "validation",
+          "horizon": 6,
+          "unit": "kWh per hour",
+          "models": [
+            {
+              "model": "boosted",
+              "mae": 0.30727196023553843,
+              "rmse": 0.5486476576914933,
+              "n": 26
+            },
+            {
+              "model": "prophet",
+              "mae": 0.33767703617684613,
+              "rmse": 0.5781320405477447,
+              "n": 26
+            },
+            {
+              "model": "naive",
+              "mae": 0.4115384615384616,
+              "rmse": 0.7269430196694606,
+              "n": 26
+            },
+            {
+              "model": "drift",
+              "mae": 0.4120779767748462,
+              "rmse": 0.7274546611959919,
+              "n": 26
+            },
+            {
+              "model": "seasonal_naive",
+              "mae": 0.4230769230769231,
+              "rmse": 0.7662797239811422,
+              "n": 26
+            },
+            {
+              "model": "arima",
+              "mae": 0.45323863812823084,
+              "rmse": 0.7742642848475493,
+              "n": 26
+            }
+          ],
+          "best_model": "boosted",
+          "worst_errors": [
+            {
+              "origin": "2016-03-25T05:00:00",
+              "timestamp": "2016-03-25T11:00:00",
+              "actual": 3.12,
+              "prediction": 0.821241196497,
+              "absolute_error": 2.298758803503
+            },
+            {
+              "origin": "2016-03-27T07:00:00",
+              "timestamp": "2016-03-27T13:00:00",
+              "actual": 0.41,
+              "prediction": 1.31904106942,
+              "absolute_error": 0.9090410694200002
+            },
+            {
+              "origin": "2016-03-28T08:00:00",
+              "timestamp": "2016-03-28T14:00:00",
+              "actual": 1.58,
+              "prediction": 0.918538185735,
+              "absolute_error": 0.6614618142650001
+            }
+          ]
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "best_model",
+            "arguments": {
+              "dataset": "energy",
+              "phase": "validation",
+              "horizon": 6
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 3.873
+      }
+    },
+    {
+      "id": "energy_test_best",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "Lowest measured MAE (energy, test, 6-hour horizon): boosted, 0.186312 kWh per hour across 26 origins. Largest absolute errors: 2016-05-21T09:00:00: observed 1.86, forecast 0.815675, error 1.04432 kWh per hour; 2016-05-22T10:00:00: observed 1.21, forecast 0.571957, error 0.638043 kWh per hour; 2016-05-05T18:00:00: observed 0.97, forecast 1.41798, error 0.447979 kWh per hour. These are historical measurements, not evidence of future performance or a causal explanation of errors. Test rankings are descriptive; model selection used validation MAE. This historical test was inspected during development.",
+        "citations": [
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 21,
+            "line_end": 21,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "arima",
+              "horizon": 6
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 24,
+            "line_end": 24,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "boosted",
+              "horizon": 6
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 27,
+            "line_end": 27,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "drift",
+              "horizon": 6
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 30,
+            "line_end": 30,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "naive",
+              "horizon": 6
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 33,
+            "line_end": 33,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "prophet",
+              "horizon": 6
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 36,
+            "line_end": 36,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "seasonal_naive",
+              "horizon": 6
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 1314,
+            "line_end": 1314,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "boosted",
+              "horizon": 6,
+              "origin": "2016-05-21T03:00:00"
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 1332,
+            "line_end": 1332,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "boosted",
+              "horizon": 6,
+              "origin": "2016-05-22T04:00:00"
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 1044,
+            "line_end": 1044,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "boosted",
+              "horizon": 6,
+              "origin": "2016-05-05T12:00:00"
+            }
+          }
+        ],
+        "facts": {
+          "dataset": "energy",
+          "phase": "test",
+          "horizon": 6,
+          "unit": "kWh per hour",
+          "models": [
+            {
+              "model": "boosted",
+              "mae": 0.1863121211486538,
+              "rmse": 0.29653092865019987,
+              "n": 26,
+              "coverage": 0.8461538461538461
+            },
+            {
+              "model": "prophet",
+              "mae": 0.2085977862141154,
+              "rmse": 0.3187771482787245,
+              "n": 26,
+              "coverage": 0.8846153846153846
+            },
+            {
+              "model": "seasonal_naive",
+              "mae": 0.2976923076923077,
+              "rmse": 0.5347752942915514,
+              "n": 26,
+              "coverage": 0.6923076923076923
+            },
+            {
+              "model": "naive",
+              "mae": 0.30692307692307697,
+              "rmse": 0.4525568387591688,
+              "n": 26,
+              "coverage": 0.9230769230769231
+            },
+            {
+              "model": "drift",
+              "mae": 0.3070817045770385,
+              "rmse": 0.4526931262028173,
+              "n": 26,
+              "coverage": 0.9230769230769231
+            },
+            {
+              "model": "arima",
+              "mae": 0.3098769999535769,
+              "rmse": 0.45599105236194737,
+              "n": 26,
+              "coverage": 0.8076923076923077
+            }
+          ],
+          "best_model": "boosted",
+          "worst_errors": [
+            {
+              "origin": "2016-05-21T03:00:00",
+              "timestamp": "2016-05-21T09:00:00",
+              "actual": 1.86,
+              "prediction": 0.81567509941,
+              "absolute_error": 1.04432490059
+            },
+            {
+              "origin": "2016-05-22T04:00:00",
+              "timestamp": "2016-05-22T10:00:00",
+              "actual": 1.21,
+              "prediction": 0.571956999773,
+              "absolute_error": 0.638043000227
+            },
+            {
+              "origin": "2016-05-05T12:00:00",
+              "timestamp": "2016-05-05T18:00:00",
+              "actual": 0.97,
+              "prediction": 1.41797886648,
+              "absolute_error": 0.44797886647999996
+            }
+          ]
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "best_model",
+            "arguments": {
+              "dataset": "energy",
+              "phase": "test",
+              "horizon": 6
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 4.493
+      }
+    },
+    {
+      "id": "energy_validation_one",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "Lowest measured MAE (energy, validation, 1-hour horizon): drift, 0.115748 kWh per hour across 26 origins. Largest absolute errors: 2016-03-08T14:00:00: observed 0.25, forecast 0.78033, error 0.53033 kWh per hour; 2016-03-15T21:00:00: observed 0.84, forecast 1.2606, error 0.420604 kWh per hour; 2016-03-07T13:00:00: observed 1.88, forecast 1.52089, error 0.359111 kWh per hour. These are historical measurements, not evidence of future performance or a causal explanation of errors.",
+        "citations": [
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 38,
+            "line_end": 38,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "arima",
+              "horizon": 1
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 41,
+            "line_end": 41,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "boosted",
+              "horizon": 1
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 44,
+            "line_end": 44,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "drift",
+              "horizon": 1
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 47,
+            "line_end": 47,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "naive",
+              "horizon": 1
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 50,
+            "line_end": 50,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "prophet",
+              "horizon": 1
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 53,
+            "line_end": 53,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "seasonal_naive",
+              "horizon": 1
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 41,
+            "line_end": 41,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "drift",
+              "horizon": 1,
+              "origin": "2016-03-08T13:00:00"
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 167,
+            "line_end": 167,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "drift",
+              "horizon": 1,
+              "origin": "2016-03-15T20:00:00"
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 23,
+            "line_end": 23,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "validation",
+              "model": "drift",
+              "horizon": 1,
+              "origin": "2016-03-07T12:00:00"
+            }
+          }
+        ],
+        "facts": {
+          "dataset": "energy",
+          "phase": "validation",
+          "horizon": 1,
+          "unit": "kWh per hour",
+          "models": [
+            {
+              "model": "drift",
+              "mae": 0.11574795062923074,
+              "rmse": 0.18475042658704816,
+              "n": 26
+            },
+            {
+              "model": "naive",
+              "mae": 0.11576923076923078,
+              "rmse": 0.18473473706080043,
+              "n": 26
+            },
+            {
+              "model": "boosted",
+              "mae": 0.12643486925,
+              "rmse": 0.174068175508184,
+              "n": 26
+            },
+            {
+              "model": "arima",
+              "mae": 0.1485872984107308,
+              "rmse": 0.22018786193512993,
+              "n": 26
+            },
+            {
+              "model": "prophet",
+              "mae": 0.2329092761333077,
+              "rmse": 0.30445237297336825,
+              "n": 26
+            },
+            {
+              "model": "seasonal_naive",
+              "mae": 0.2776923076923077,
+              "rmse": 0.49835884507204087,
+              "n": 26
+            }
+          ],
+          "best_model": "drift",
+          "worst_errors": [
+            {
+              "origin": "2016-03-08T13:00:00",
+              "timestamp": "2016-03-08T14:00:00",
+              "actual": 0.25,
+              "prediction": 0.780329912023,
+              "absolute_error": 0.530329912023
+            },
+            {
+              "origin": "2016-03-15T20:00:00",
+              "timestamp": "2016-03-15T21:00:00",
+              "actual": 0.84,
+              "prediction": 1.2606042885,
+              "absolute_error": 0.4206042885
+            },
+            {
+              "origin": "2016-03-07T12:00:00",
+              "timestamp": "2016-03-07T13:00:00",
+              "actual": 1.88,
+              "prediction": 1.52088872293,
+              "absolute_error": 0.3591112770699998
+            }
+          ]
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "best_model",
+            "arguments": {
+              "dataset": "energy",
+              "phase": "validation",
+              "horizon": 1
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 2.971
+      }
+    },
+    {
+      "id": "energy_test_one",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "Lowest measured MAE (energy, test, 1-hour horizon): boosted, 0.22877 kWh per hour across 26 origins. Largest absolute errors: 2016-04-30T08:00:00: observed 1.96, forecast 0.612471, error 1.34753 kWh per hour; 2016-05-26T09:00:00: observed 1.66, forecast 0.714708, error 0.945292 kWh per hour; 2016-05-09T17:00:00: observed 1.61, forecast 0.727514, error 0.882486 kWh per hour. These are historical measurements, not evidence of future performance or a causal explanation of errors. Test rankings are descriptive; model selection used validation MAE. This historical test was inspected during development.",
+        "citations": [
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 20,
+            "line_end": 20,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "arima",
+              "horizon": 1
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 23,
+            "line_end": 23,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "boosted",
+              "horizon": 1
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 26,
+            "line_end": 26,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "drift",
+              "horizon": 1
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 29,
+            "line_end": 29,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "naive",
+              "horizon": 1
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 32,
+            "line_end": 32,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "prophet",
+              "horizon": 1
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 35,
+            "line_end": 35,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "seasonal_naive",
+              "horizon": 1
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 953,
+            "line_end": 953,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "boosted",
+              "horizon": 1,
+              "origin": "2016-04-30T07:00:00"
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 1403,
+            "line_end": 1403,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "boosted",
+              "horizon": 1,
+              "origin": "2016-05-26T08:00:00"
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 1115,
+            "line_end": 1115,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "boosted",
+              "horizon": 1,
+              "origin": "2016-05-09T16:00:00"
+            }
+          }
+        ],
+        "facts": {
+          "dataset": "energy",
+          "phase": "test",
+          "horizon": 1,
+          "unit": "kWh per hour",
+          "models": [
+            {
+              "model": "boosted",
+              "mae": 0.22876973033803844,
+              "rmse": 0.4062233084572739,
+              "n": 26,
+              "coverage": 0.8461538461538461
+            },
+            {
+              "model": "naive",
+              "mae": 0.24192307692307696,
+              "rmse": 0.44824014854677036,
+              "n": 26,
+              "coverage": 0.7307692307692307
+            },
+            {
+              "model": "drift",
+              "mae": 0.24193760257207692,
+              "rmse": 0.4482295433704781,
+              "n": 26,
+              "coverage": 0.7307692307692307
+            },
+            {
+              "model": "arima",
+              "mae": 0.26199112715726924,
+              "rmse": 0.4737552217333141,
+              "n": 26,
+              "coverage": 0.8076923076923077
+            },
+            {
+              "model": "seasonal_naive",
+              "mae": 0.29,
+              "rmse": 0.5004997502496878,
+              "n": 26,
+              "coverage": 0.7307692307692307
+            },
+            {
+              "model": "prophet",
+              "mae": 0.3025944021725769,
+              "rmse": 0.4431209472683396,
+              "n": 26,
+              "coverage": 0.8846153846153846
+            }
+          ],
+          "best_model": "boosted",
+          "worst_errors": [
+            {
+              "origin": "2016-04-30T07:00:00",
+              "timestamp": "2016-04-30T08:00:00",
+              "actual": 1.96,
+              "prediction": 0.61247065014,
+              "absolute_error": 1.3475293498599998
+            },
+            {
+              "origin": "2016-05-26T08:00:00",
+              "timestamp": "2016-05-26T09:00:00",
+              "actual": 1.66,
+              "prediction": 0.714707851457,
+              "absolute_error": 0.9452921485429999
+            },
+            {
+              "origin": "2016-05-09T16:00:00",
+              "timestamp": "2016-05-09T17:00:00",
+              "actual": 1.61,
+              "prediction": 0.7275135786,
+              "absolute_error": 0.8824864214000001
+            }
+          ]
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "best_model",
+            "arguments": {
+              "dataset": "energy",
+              "phase": "test",
+              "horizon": 1
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 3.957
+      }
+    },
+    {
+      "id": "crypto_validation_best",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "Lowest measured MAE (crypto, validation, 30-day horizon): arima, 1191.28 USD across 35 origins. Largest absolute errors: 2019-07-10T00:00:00: observed 12108.4, forecast 7991.47, error 4116.9 USD; 2019-10-03T00:00:00: observed 8223.96, forecast 10606.3, error 2382.3 USD; 2019-10-23T00:00:00: observed 7466.62, forecast 9724.67, error 2258.05 USD. These are historical measurements, not evidence of future performance or a causal explanation of errors.",
+        "citations": [
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 40,
+            "line_end": 40,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "model": "arima",
+              "horizon": 30
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 43,
+            "line_end": 43,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "model": "boosted",
+              "horizon": 30
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 46,
+            "line_end": 46,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "model": "drift",
+              "horizon": 30
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 49,
+            "line_end": 49,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "model": "naive",
+              "horizon": 30
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 52,
+            "line_end": 52,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "model": "prophet",
+              "horizon": 30
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 55,
+            "line_end": 55,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "model": "seasonal_naive",
+              "horizon": 30
+            }
+          },
+          {
+            "file": "results/crypto/predictions.csv",
+            "line_start": 13,
+            "line_end": 13,
+            "sha256": "760a4dc8b7ee51f3228eb3d8d93e3c7bd501dff28433e872b6c0689ea678bc39",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "model": "arima",
+              "horizon": 30,
+              "origin": "2019-06-10T00:00:00"
+            }
+          },
+          {
+            "file": "results/crypto/predictions.csv",
+            "line_start": 319,
+            "line_end": 319,
+            "sha256": "760a4dc8b7ee51f3228eb3d8d93e3c7bd501dff28433e872b6c0689ea678bc39",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "model": "arima",
+              "horizon": 30,
+              "origin": "2019-09-03T00:00:00"
+            }
+          },
+          {
+            "file": "results/crypto/predictions.csv",
+            "line_start": 391,
+            "line_end": 391,
+            "sha256": "760a4dc8b7ee51f3228eb3d8d93e3c7bd501dff28433e872b6c0689ea678bc39",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "model": "arima",
+              "horizon": 30,
+              "origin": "2019-09-23T00:00:00"
+            }
+          }
+        ],
+        "facts": {
+          "dataset": "crypto",
+          "phase": "validation",
+          "horizon": 30,
+          "unit": "USD",
+          "models": [
+            {
+              "model": "arima",
+              "mae": 1191.281889563714,
+              "rmse": 1500.0292513092513,
+              "n": 35
+            },
+            {
+              "model": "naive",
+              "mae": 1191.5602857142858,
+              "rmse": 1497.5591162583773,
+              "n": 35
+            },
+            {
+              "model": "drift",
+              "mae": 1234.8502056551429,
+              "rmse": 1540.4662525605663,
+              "n": 35
+            },
+            {
+              "model": "seasonal_naive",
+              "mae": 1321.5797142857145,
+              "rmse": 1652.5665691895315,
+              "n": 35
+            },
+            {
+              "model": "boosted",
+              "mae": 1401.1464393528574,
+              "rmse": 1727.5806747143456,
+              "n": 35
+            },
+            {
+              "model": "prophet",
+              "mae": 2180.9780768548567,
+              "rmse": 2774.4731679689307,
+              "n": 35
+            }
+          ],
+          "best_model": "arima",
+          "worst_errors": [
+            {
+              "origin": "2019-06-10T00:00:00",
+              "timestamp": "2019-07-10T00:00:00",
+              "actual": 12108.37,
+              "prediction": 7991.47166385,
+              "absolute_error": 4116.89833615
+            },
+            {
+              "origin": "2019-09-03T00:00:00",
+              "timestamp": "2019-10-03T00:00:00",
+              "actual": 8223.96,
+              "prediction": 10606.263078,
+              "absolute_error": 2382.303078000001
+            },
+            {
+              "origin": "2019-09-23T00:00:00",
+              "timestamp": "2019-10-23T00:00:00",
+              "actual": 7466.62,
+              "prediction": 9724.67364717,
+              "absolute_error": 2258.0536471700007
+            }
+          ]
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "best_model",
+            "arguments": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "horizon": 30
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 3.364
+      }
+    },
+    {
+      "id": "crypto_test_best",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "Lowest measured MAE (crypto, test, 30-day horizon): boosted, 4218.03 USD across 35 origins. Largest absolute errors: 2021-01-10T00:00:00: observed 38150, forecast 21843.9, error 16306.1 USD; 2021-01-15T00:00:00: observed 36742.2, forecast 24507.2, error 12235 USD; 2021-01-05T00:00:00: observed 33949.5, forecast 23089.3, error 10860.2 USD. These are historical measurements, not evidence of future performance or a causal explanation of errors. Test rankings are descriptive; model selection used validation MAE. This historical test was inspected during development.",
+        "citations": [
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 22,
+            "line_end": 22,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "test",
+              "model": "arima",
+              "horizon": 30
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 25,
+            "line_end": 25,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "test",
+              "model": "boosted",
+              "horizon": 30
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 28,
+            "line_end": 28,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "test",
+              "model": "drift",
+              "horizon": 30
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 31,
+            "line_end": 31,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "test",
+              "model": "naive",
+              "horizon": 30
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 34,
+            "line_end": 34,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "test",
+              "model": "prophet",
+              "horizon": 30
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 37,
+            "line_end": 37,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "test",
+              "model": "seasonal_naive",
+              "horizon": 30
+            }
+          },
+          {
+            "file": "results/crypto/predictions.csv",
+            "line_start": 1819,
+            "line_end": 1819,
+            "sha256": "760a4dc8b7ee51f3228eb3d8d93e3c7bd501dff28433e872b6c0689ea678bc39",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "test",
+              "model": "boosted",
+              "horizon": 30,
+              "origin": "2020-12-11T00:00:00"
+            }
+          },
+          {
+            "file": "results/crypto/predictions.csv",
+            "line_start": 1837,
+            "line_end": 1837,
+            "sha256": "760a4dc8b7ee51f3228eb3d8d93e3c7bd501dff28433e872b6c0689ea678bc39",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "test",
+              "model": "boosted",
+              "horizon": 30,
+              "origin": "2020-12-16T00:00:00"
+            }
+          },
+          {
+            "file": "results/crypto/predictions.csv",
+            "line_start": 1801,
+            "line_end": 1801,
+            "sha256": "760a4dc8b7ee51f3228eb3d8d93e3c7bd501dff28433e872b6c0689ea678bc39",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "test",
+              "model": "boosted",
+              "horizon": 30,
+              "origin": "2020-12-06T00:00:00"
+            }
+          }
+        ],
+        "facts": {
+          "dataset": "crypto",
+          "phase": "test",
+          "horizon": 30,
+          "unit": "USD",
+          "models": [
+            {
+              "model": "boosted",
+              "mae": 4218.033641144858,
+              "rmse": 5594.455356136139,
+              "n": 35,
+              "coverage": 0.3142857142857143
+            },
+            {
+              "model": "drift",
+              "mae": 4486.749689453429,
+              "rmse": 6417.391221929958,
+              "n": 35,
+              "coverage": 0.37142857142857144
+            },
+            {
+              "model": "arima",
+              "mae": 4613.165761542858,
+              "rmse": 6583.8654979576395,
+              "n": 35,
+              "coverage": 0.34285714285714286
+            },
+            {
+              "model": "naive",
+              "mae": 4615.460857142856,
+              "rmse": 6586.138579953464,
+              "n": 35,
+              "coverage": 0.34285714285714286
+            },
+            {
+              "model": "seasonal_naive",
+              "mae": 5209.690571428571,
+              "rmse": 7209.899160808007,
+              "n": 35,
+              "coverage": 0.4
+            },
+            {
+              "model": "prophet",
+              "mae": 5688.805934255714,
+              "rmse": 8193.555521621598,
+              "n": 35,
+              "coverage": 0.4857142857142857
+            }
+          ],
+          "best_model": "boosted",
+          "worst_errors": [
+            {
+              "origin": "2020-12-11T00:00:00",
+              "timestamp": "2021-01-10T00:00:00",
+              "actual": 38150.02,
+              "prediction": 21843.9007059,
+              "absolute_error": 16306.119294099997
+            },
+            {
+              "origin": "2020-12-16T00:00:00",
+              "timestamp": "2021-01-15T00:00:00",
+              "actual": 36742.22,
+              "prediction": 24507.2217895,
+              "absolute_error": 12234.998210500002
+            },
+            {
+              "origin": "2020-12-06T00:00:00",
+              "timestamp": "2021-01-05T00:00:00",
+              "actual": 33949.53,
+              "prediction": 23089.3393693,
+              "absolute_error": 10860.190630699999
+            }
+          ]
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "best_model",
+            "arguments": {
+              "dataset": "crypto",
+              "phase": "test",
+              "horizon": 30
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 4.994
+      }
+    },
+    {
+      "id": "energy_compare",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "Recorded comparison (energy, test, 24-hour horizon): naive MAE 0.156538 kWh per hour across 26 origins; seasonal_naive MAE 0.156538 kWh per hour across 26 origins; drift MAE 0.156944 kWh per hour across 26 origins; arima MAE 0.169459 kWh per hour across 26 origins; prophet MAE 0.212498 kWh per hour across 26 origins; boosted MAE 0.239936 kWh per hour across 26 origins. These are historical measurements, not evidence of future performance or a causal explanation of errors. Test rankings are descriptive; model selection used validation MAE. This historical test was inspected during development.",
+        "citations": [
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 22,
+            "line_end": 22,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "arima",
+              "horizon": 24
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 25,
+            "line_end": 25,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "boosted",
+              "horizon": 24
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 28,
+            "line_end": 28,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "drift",
+              "horizon": 24
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 31,
+            "line_end": 31,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "naive",
+              "horizon": 24
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 34,
+            "line_end": 34,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "prophet",
+              "horizon": 24
+            }
+          },
+          {
+            "file": "results/energy/metrics.csv",
+            "line_start": 37,
+            "line_end": 37,
+            "sha256": "bcc7dcc24088518fdaad42496e597d1ac42ad61e62f6aea138077cdba8be1e40",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "seasonal_naive",
+              "horizon": 24
+            }
+          }
+        ],
+        "facts": {
+          "dataset": "energy",
+          "phase": "test",
+          "horizon": 24,
+          "unit": "kWh per hour",
+          "models": [
+            {
+              "model": "naive",
+              "mae": 0.15653846153846154,
+              "rmse": 0.22691069066586866,
+              "n": 26,
+              "coverage": 0.9615384615384616
+            },
+            {
+              "model": "seasonal_naive",
+              "mae": 0.15653846153846154,
+              "rmse": 0.22691069066586866,
+              "n": 26,
+              "coverage": 0.9615384615384616
+            },
+            {
+              "model": "drift",
+              "mae": 0.1569441580133077,
+              "rmse": 0.22694802529736552,
+              "n": 26,
+              "coverage": 0.9615384615384616
+            },
+            {
+              "model": "arima",
+              "mae": 0.1694594150767692,
+              "rmse": 0.24841952653163737,
+              "n": 26,
+              "coverage": 1.0
+            },
+            {
+              "model": "prophet",
+              "mae": 0.2124978343838077,
+              "rmse": 0.2594929391089718,
+              "n": 26,
+              "coverage": 0.9615384615384616
+            },
+            {
+              "model": "boosted",
+              "mae": 0.2399358632413846,
+              "rmse": 0.3140522239670706,
+              "n": 26,
+              "coverage": 0.8461538461538461
+            }
+          ]
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "compare_models",
+            "arguments": {
+              "dataset": "energy",
+              "phase": "test",
+              "horizon": 24
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 3.405
+      }
+    },
+    {
+      "id": "crypto_compare",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "Recorded comparison (crypto, calibration, 7-day horizon): arima MAE 684.657 USD across 35 origins; naive MAE 685.733 USD across 35 origins; seasonal_naive MAE 685.733 USD across 35 origins; drift MAE 695.911 USD across 35 origins; boosted MAE 732.743 USD across 35 origins; prophet MAE 1492.66 USD across 35 origins. These are historical measurements, not evidence of future performance or a causal explanation of errors.",
+        "citations": [
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 3,
+            "line_end": 3,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "calibration",
+              "model": "arima",
+              "horizon": 7
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 6,
+            "line_end": 6,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "calibration",
+              "model": "boosted",
+              "horizon": 7
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 9,
+            "line_end": 9,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "calibration",
+              "model": "drift",
+              "horizon": 7
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 12,
+            "line_end": 12,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "calibration",
+              "model": "naive",
+              "horizon": 7
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 15,
+            "line_end": 15,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "calibration",
+              "model": "prophet",
+              "horizon": 7
+            }
+          },
+          {
+            "file": "results/crypto/metrics.csv",
+            "line_start": 18,
+            "line_end": 18,
+            "sha256": "cb58c83346933002dcec69f9277d1c32c3108478352f5d8d82a468eff306ec30",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "calibration",
+              "model": "seasonal_naive",
+              "horizon": 7
+            }
+          }
+        ],
+        "facts": {
+          "dataset": "crypto",
+          "phase": "calibration",
+          "horizon": 7,
+          "unit": "USD",
+          "models": [
+            {
+              "model": "arima",
+              "mae": 684.6573403817141,
+              "rmse": 992.3216666293625,
+              "n": 35
+            },
+            {
+              "model": "naive",
+              "mae": 685.7328571428569,
+              "rmse": 994.8308896792457,
+              "n": 35
+            },
+            {
+              "model": "seasonal_naive",
+              "mae": 685.7328571428569,
+              "rmse": 994.8308896792457,
+              "n": 35
+            },
+            {
+              "model": "drift",
+              "mae": 695.9112194602858,
+              "rmse": 1000.3751565278493,
+              "n": 35
+            },
+            {
+              "model": "boosted",
+              "mae": 732.7428930642856,
+              "rmse": 1047.36310211715,
+              "n": 35
+            },
+            {
+              "model": "prophet",
+              "mae": 1492.6576704319998,
+              "rmse": 1730.939022340606,
+              "n": 35
+            }
+          ]
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "compare_models",
+            "arguments": {
+              "dataset": "crypto",
+              "phase": "calibration",
+              "horizon": 7
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 2.117
+      }
+    },
+    {
+      "id": "energy_errors",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "Largest observed errors for arima (energy, test, 6-hour horizon). Largest absolute errors: 2016-05-21T09:00:00: observed 1.86, forecast 0.304622, error 1.55538 kWh per hour; 2016-05-22T10:00:00: observed 1.21, forecast 0.326144, error 0.883856 kWh per hour; 2016-04-30T13:00:00: observed 1.03, forecast 0.332754, error 0.697246 kWh per hour. These are historical measurements, not evidence of future performance or a causal explanation of errors. Test rankings are descriptive; model selection used validation MAE. This historical test was inspected during development.",
+        "citations": [
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 1308,
+            "line_end": 1308,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "arima",
+              "horizon": 6,
+              "origin": "2016-05-21T03:00:00"
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 1326,
+            "line_end": 1326,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "arima",
+              "horizon": 6,
+              "origin": "2016-05-22T04:00:00"
+            }
+          },
+          {
+            "file": "results/energy/predictions.csv",
+            "line_start": 948,
+            "line_end": 948,
+            "sha256": "92c1f71bbba9ac2fead562d78f4be1d90832afeaeb2b2fb5fb1b6800c84804a5",
+            "selector": {
+              "dataset": "energy",
+              "phase": "test",
+              "model": "arima",
+              "horizon": 6,
+              "origin": "2016-04-30T07:00:00"
+            }
+          }
+        ],
+        "facts": {
+          "dataset": "energy",
+          "phase": "test",
+          "horizon": 6,
+          "model": "arima",
+          "unit": "kWh per hour",
+          "worst_errors": [
+            {
+              "origin": "2016-05-21T03:00:00",
+              "timestamp": "2016-05-21T09:00:00",
+              "actual": 1.86,
+              "prediction": 0.304622123443,
+              "absolute_error": 1.555377876557
+            },
+            {
+              "origin": "2016-05-22T04:00:00",
+              "timestamp": "2016-05-22T10:00:00",
+              "actual": 1.21,
+              "prediction": 0.326144447311,
+              "absolute_error": 0.883855552689
+            },
+            {
+              "origin": "2016-04-30T07:00:00",
+              "timestamp": "2016-04-30T13:00:00",
+              "actual": 1.03,
+              "prediction": 0.332754225224,
+              "absolute_error": 0.697245774776
+            }
+          ]
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "worst_errors",
+            "arguments": {
+              "dataset": "energy",
+              "phase": "test",
+              "horizon": 6,
+              "model": "arima"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 1.379
+      }
+    },
+    {
+      "id": "crypto_errors",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "Largest observed errors for prophet (crypto, validation, 1-day horizon). Largest absolute errors: 2019-06-26T00:00:00: observed 13093.8, forecast 9751.29, error 3342.51 USD; 2019-09-24T00:00:00: observed 8493.14, forecast 11082.7, error 2589.56 USD; 2019-08-30T00:00:00: observed 9584.54, forecast 12101, error 2516.44 USD. These are historical measurements, not evidence of future performance or a causal explanation of errors.",
+        "citations": [
+          {
+            "file": "results/crypto/predictions.csv",
+            "line_start": 68,
+            "line_end": 68,
+            "sha256": "760a4dc8b7ee51f3228eb3d8d93e3c7bd501dff28433e872b6c0689ea678bc39",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "model": "prophet",
+              "horizon": 1,
+              "origin": "2019-06-25T00:00:00"
+            }
+          },
+          {
+            "file": "results/crypto/predictions.csv",
+            "line_start": 392,
+            "line_end": 392,
+            "sha256": "760a4dc8b7ee51f3228eb3d8d93e3c7bd501dff28433e872b6c0689ea678bc39",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "model": "prophet",
+              "horizon": 1,
+              "origin": "2019-09-23T00:00:00"
+            }
+          },
+          {
+            "file": "results/crypto/predictions.csv",
+            "line_start": 302,
+            "line_end": 302,
+            "sha256": "760a4dc8b7ee51f3228eb3d8d93e3c7bd501dff28433e872b6c0689ea678bc39",
+            "selector": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "model": "prophet",
+              "horizon": 1,
+              "origin": "2019-08-29T00:00:00"
+            }
+          }
+        ],
+        "facts": {
+          "dataset": "crypto",
+          "phase": "validation",
+          "horizon": 1,
+          "model": "prophet",
+          "unit": "USD",
+          "worst_errors": [
+            {
+              "origin": "2019-06-25T00:00:00",
+              "timestamp": "2019-06-26T00:00:00",
+              "actual": 13093.8,
+              "prediction": 9751.29169301,
+              "absolute_error": 3342.5083069899993
+            },
+            {
+              "origin": "2019-09-23T00:00:00",
+              "timestamp": "2019-09-24T00:00:00",
+              "actual": 8493.14,
+              "prediction": 11082.6952689,
+              "absolute_error": 2589.5552689000015
+            },
+            {
+              "origin": "2019-08-29T00:00:00",
+              "timestamp": "2019-08-30T00:00:00",
+              "actual": 9584.54,
+              "prediction": 12100.9767829,
+              "absolute_error": 2516.4367828999984
+            }
+          ]
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "worst_errors",
+            "arguments": {
+              "dataset": "crypto",
+              "phase": "validation",
+              "horizon": 1,
+              "model": "prophet"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 1.586
+      }
+    },
+    {
+      "id": "intervals",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "## Errors and intervals\n\nMAE and RMSE stay in the target's units: USD for price and kWh for hourly appliance consumption. MAPE is reported as a percentage, not a fraction with a percent sign. Zero-valued targets are excluded from MAPE, and `mape_n` reports its denominator. MASE scales absolute error by a seasonal-naive error estimated from the history at each origin, not from its future outcomes. Zero scales are excluded, with the valid count reported as `mase_n`.\n\nNominal 80% prediction intervals use absolute errors collected in the calibration period, separately by model and horizon. For `n` calibration errors, the half-width is the sorted error at rank `ceil((n + 1) \u00d7 0.8)`. At least five calibration origins are required. Half-widths are fixed before the final test forecasts are scored, with lower bounds clipped to zero. The results report observed test coverage and interval width, so a wide but unhelpful interval is not presented as an accurate point forecast.\n\nThese are empirical residual intervals. Time-series errors can be dependent, and changing volatility or demand can move the test distribution away from calibration. The nominal level is therefore not a guarantee of 80% future coverage. Sparse calibration samples and overlapping long-horizon forecasts also limit the precision of comparisons.\n\nBounds are inclusive. Coverage comparisons allow `1e-9 \u00d7 max(1, abs(actual))` at a boundary so decimal CSV serialization cannot change whether an observation exactly on that boundary is counted. This tolerance is far below the source measurement precision.",
+        "citations": [
+          {
+            "file": "docs/methodology.md",
+            "line_start": 29,
+            "line_end": 38,
+            "sha256": "510b24aa2e8fb80eec995134bef9a3175ccd94a0c2cf458a86ec36167be6558e",
+            "selector": {}
+          }
+        ],
+        "facts": {
+          "topic": "intervals",
+          "excerpt": "## Errors and intervals\n\nMAE and RMSE stay in the target's units: USD for price and kWh for hourly appliance consumption. MAPE is reported as a percentage, not a fraction with a percent sign. Zero-valued targets are excluded from MAPE, and `mape_n` reports its denominator. MASE scales absolute error by a seasonal-naive error estimated from the history at each origin, not from its future outcomes. Zero scales are excluded, with the valid count reported as `mase_n`.\n\nNominal 80% prediction intervals use absolute errors collected in the calibration period, separately by model and horizon. For `n` calibration errors, the half-width is the sorted error at rank `ceil((n + 1) \u00d7 0.8)`. At least five calibration origins are required. Half-widths are fixed before the final test forecasts are scored, with lower bounds clipped to zero. The results report observed test coverage and interval width, so a wide but unhelpful interval is not presented as an accurate point forecast.\n\nThese are empirical residual intervals. Time-series errors can be dependent, and changing volatility or demand can move the test distribution away from calibration. The nominal level is therefore not a guarantee of 80% future coverage. Sparse calibration samples and overlapping long-horizon forecasts also limit the precision of comparisons.\n\nBounds are inclusive. Coverage comparisons allow `1e-9 \u00d7 max(1, abs(actual))` at a boundary so decimal CSV serialization cannot change whether an observation exactly on that boundary is counted. This tolerance is far below the source measurement precision."
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "read_methodology",
+            "arguments": {
+              "topic": "intervals"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.058
+      }
+    },
+    {
+      "id": "holdout",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "## Chronological partitions\n\nThe first 40% of observations provide initial training history. The next 20% are validation, the next 20% calibrate forecast intervals, and the last 20% are the final test period. Exact boundaries and origins are saved in `splits.json`. Origins whose requested horizon crosses a partition boundary are excluded from that partition's comparison.\n\nModels refit on expanding history. Origins are spaced five days apart in the daily price study and 25 hours apart in the hourly energy study. These strides visit every weekday or hour instead of repeatedly sampling a single clock slot. The split record includes weekday counts and, for energy, hour counts. The `--quick` option reduces the number of origins for development; quick output is not a substitute for the full result set.\n\nFor each horizon, the reported selected model is the one with the lowest validation MAE; ties are broken by model name. All models are still evaluated and shown. The final test period is not used to select a model, tune hyperparameters, or calibrate intervals in the recorded run. A later test origin may incorporate observations from earlier in the test period after they become known. The test therefore measures rolling deployment with refits, not one fixed model asked to forecast the entire period at once.\n\nThe configurations in the code are fixed rather than the result of an exhaustive search. If those configurations are changed after inspecting the final results, that period is no longer an untouched test for the revised experiment. A new holdout period or dataset is needed for a fresh confirmation.\n\nDevelopment runs exposed a schedule that sampled different fixed weekdays or hours in each partition. The recorded comparison corrects that calendar-sampling problem. The model configurations were not tuned to improve the test scores, but this historical period has been inspected during development and is not a fresh external confirmation.",
+        "citations": [
+          {
+            "file": "docs/methodology.md",
+            "line_start": 9,
+            "line_end": 20,
+            "sha256": "510b24aa2e8fb80eec995134bef9a3175ccd94a0c2cf458a86ec36167be6558e",
+            "selector": {}
+          }
+        ],
+        "facts": {
+          "topic": "partitions",
+          "excerpt": "## Chronological partitions\n\nThe first 40% of observations provide initial training history. The next 20% are validation, the next 20% calibrate forecast intervals, and the last 20% are the final test period. Exact boundaries and origins are saved in `splits.json`. Origins whose requested horizon crosses a partition boundary are excluded from that partition's comparison.\n\nModels refit on expanding history. Origins are spaced five days apart in the daily price study and 25 hours apart in the hourly energy study. These strides visit every weekday or hour instead of repeatedly sampling a single clock slot. The split record includes weekday counts and, for energy, hour counts. The `--quick` option reduces the number of origins for development; quick output is not a substitute for the full result set.\n\nFor each horizon, the reported selected model is the one with the lowest validation MAE; ties are broken by model name. All models are still evaluated and shown. The final test period is not used to select a model, tune hyperparameters, or calibrate intervals in the recorded run. A later test origin may incorporate observations from earlier in the test period after they become known. The test therefore measures rolling deployment with refits, not one fixed model asked to forecast the entire period at once.\n\nThe configurations in the code are fixed rather than the result of an exhaustive search. If those configurations are changed after inspecting the final results, that period is no longer an untouched test for the revised experiment. A new holdout period or dataset is needed for a fresh confirmation.\n\nDevelopment runs exposed a schedule that sampled different fixed weekdays or hours in each partition. The recorded comparison corrects that calendar-sampling problem. The model configurations were not tuned to improve the test scores, but this historical period has been inspected during development and is not a fresh external confirmation."
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "read_methodology",
+            "arguments": {
+              "topic": "partitions"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.034
+      }
+    },
+    {
+      "id": "features",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "## Models and features\n\nThe simple models establish whether extra complexity is useful: last observed value, linear drift from the observed history, and a seasonal repeat. The repeat period is seven days for prices and 24 hours for energy. ARIMA and Prophet are fitted separately at every origin. Gradient-boosted trees predict the change from the last observed value directly for each horizon, with features built from past target values, lagged changes, rolling statistics, and known calendar values. The price model also uses historical volume.\n\nTraining examples for a particular horizon are retained only if their outcome was available by that origin. Rolling calculations must look backward. Features may include the current completed observation, but not a future observation or a column containing the target in another currency. A future timestamp's calendar fields are known; its measured demand, price, and volume are not.\n\nThe energy experiment excludes future weather and indoor sensor measurements. Supplying observed future weather would test a different information setting and could give an unfair advantage over models that receive only consumption history. Negative forecasts are clipped to zero for every model, consistently with the nonnegative targets.",
+        "citations": [
+          {
+            "file": "docs/methodology.md",
+            "line_start": 21,
+            "line_end": 28,
+            "sha256": "510b24aa2e8fb80eec995134bef9a3175ccd94a0c2cf458a86ec36167be6558e",
+            "selector": {}
+          }
+        ],
+        "facts": {
+          "topic": "features",
+          "excerpt": "## Models and features\n\nThe simple models establish whether extra complexity is useful: last observed value, linear drift from the observed history, and a seasonal repeat. The repeat period is seven days for prices and 24 hours for energy. ARIMA and Prophet are fitted separately at every origin. Gradient-boosted trees predict the change from the last observed value directly for each horizon, with features built from past target values, lagged changes, rolling statistics, and known calendar values. The price model also uses historical volume.\n\nTraining examples for a particular horizon are retained only if their outcome was available by that origin. Rolling calculations must look backward. Features may include the current completed observation, but not a future observation or a column containing the target in another currency. A future timestamp's calendar fields are known; its measured demand, price, and volume are not.\n\nThe energy experiment excludes future weather and indoor sensor measurements. Supplying observed future weather would test a different information setting and could give an unfair advantage over models that receive only consumption history. Negative forecasts are clipped to zero for every model, consistently with the nonnegative targets."
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "read_methodology",
+            "arguments": {
+              "topic": "features"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 1.832
+      }
+    },
+    {
+      "id": "limits",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "tool_selection": true,
+        "citations": true,
+        "numerical_accuracy": true
+      },
+      "response": {
+        "answer": "## Limits\n\nBoth projects use historical datasets. The price series ends in January 2021 and is not a live market feed. It does not establish trading performance, transaction-cost-adjusted returns, or investment value.\n\nThe energy series covers about four and a half months in one building. It is too short to establish annual behavior and too narrow to establish generalization across households. No tariff, control policy, or operational trial is included, so forecast accuracy does not demonstrate cost or energy savings.\n\nDependency versions, random seeds, source hashes, and commands are recorded for reproducibility. Numerical libraries can still produce small platform-dependent differences. The repository does not claim production readiness solely because a historical backtest completes.",
+        "citations": [
+          {
+            "file": "docs/methodology.md",
+            "line_start": 45,
+            "line_end": 51,
+            "sha256": "510b24aa2e8fb80eec995134bef9a3175ccd94a0c2cf458a86ec36167be6558e",
+            "selector": {}
+          }
+        ],
+        "facts": {
+          "topic": "limitations",
+          "excerpt": "## Limits\n\nBoth projects use historical datasets. The price series ends in January 2021 and is not a live market feed. It does not establish trading performance, transaction-cost-adjusted returns, or investment value.\n\nThe energy series covers about four and a half months in one building. It is too short to establish annual behavior and too narrow to establish generalization across households. No tariff, control policy, or operational trial is included, so forecast accuracy does not demonstrate cost or energy savings.\n\nDependency versions, random seeds, source hashes, and commands are recorded for reproducibility. Numerical libraries can still produce small platform-dependent differences. The repository does not claim production readiness solely because a historical backtest completes."
+        },
+        "refused": false,
+        "mode": "deterministic-evidence",
+        "trace": [
+          {
+            "tool": "read_methodology",
+            "arguments": {
+              "topic": "limitations"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.036
+      }
+    },
+    {
+      "id": "missing_phase",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "no_evidence_on_refusal": true
+      },
+      "response": {
+        "answer": "Specify energy or crypto, validation/calibration/test, and one horizon in hours or days.",
+        "citations": [],
+        "facts": {},
+        "refused": true,
+        "mode": "deterministic-evidence",
+        "trace": [],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.054
+      }
+    },
+    {
+      "id": "missing_horizon",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "no_evidence_on_refusal": true
+      },
+      "response": {
+        "answer": "Specify energy or crypto, validation/calibration/test, and one horizon in hours or days.",
+        "citations": [],
+        "facts": {},
+        "refused": true,
+        "mode": "deterministic-evidence",
+        "trace": [],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.168
+      }
+    },
+    {
+      "id": "missing_dataset",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "no_evidence_on_refusal": true
+      },
+      "response": {
+        "answer": "Specify energy or crypto, validation/calibration/test, and one horizon in hours or days.",
+        "citations": [],
+        "facts": {},
+        "refused": true,
+        "mode": "deterministic-evidence",
+        "trace": [],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.034
+      }
+    },
+    {
+      "id": "two_datasets",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "no_evidence_on_refusal": true
+      },
+      "response": {
+        "answer": "Specify energy or crypto, validation/calibration/test, and one horizon in hours or days.",
+        "citations": [],
+        "facts": {},
+        "refused": true,
+        "mode": "deterministic-evidence",
+        "trace": [],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.031
+      }
+    },
+    {
+      "id": "unsupported_horizon",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "no_evidence_on_refusal": true
+      },
+      "response": {
+        "answer": "Unsupported horizon.",
+        "citations": [],
+        "facts": {},
+        "refused": true,
+        "mode": "deterministic-evidence",
+        "trace": [],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.484
+      }
+    },
+    {
+      "id": "wrong_units",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "no_evidence_on_refusal": true
+      },
+      "response": {
+        "answer": "Energy horizons are in hours; crypto horizons are in days.",
+        "citations": [],
+        "facts": {},
+        "refused": true,
+        "mode": "deterministic-evidence",
+        "trace": [],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.025
+      }
+    },
+    {
+      "id": "investment",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "no_evidence_on_refusal": true
+      },
+      "response": {
+        "answer": "I only inspect saved experiments and methodology, not secrets, external instructions or trading requests.",
+        "citations": [],
+        "facts": {},
+        "refused": true,
+        "mode": "deterministic-evidence",
+        "trace": [],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.006
+      }
+    },
+    {
+      "id": "prompt_injection",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "no_evidence_on_refusal": true
+      },
+      "response": {
+        "answer": "I only inspect saved experiments and methodology, not secrets, external instructions or trading requests.",
+        "citations": [],
+        "facts": {},
+        "refused": true,
+        "mode": "deterministic-evidence",
+        "trace": [],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.007
+      }
+    },
+    {
+      "id": "path_escape",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "no_evidence_on_refusal": true
+      },
+      "response": {
+        "answer": "I only inspect saved experiments and methodology, not secrets, external instructions or trading requests.",
+        "citations": [],
+        "facts": {},
+        "refused": true,
+        "mode": "deterministic-evidence",
+        "trace": [],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.004
+      }
+    },
+    {
+      "id": "shell",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "no_evidence_on_refusal": true
+      },
+      "response": {
+        "answer": "I only inspect saved experiments and methodology, not secrets, external instructions or trading requests.",
+        "citations": [],
+        "facts": {},
+        "refused": true,
+        "mode": "deterministic-evidence",
+        "trace": [],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.003
+      }
+    },
+    {
+      "id": "external_url",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "no_evidence_on_refusal": true
+      },
+      "response": {
+        "answer": "I only inspect saved experiments and methodology, not secrets, external instructions or trading requests.",
+        "citations": [],
+        "facts": {},
+        "refused": true,
+        "mode": "deterministic-evidence",
+        "trace": [],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.004
+      }
+    },
+    {
+      "id": "unsupported_topic",
+      "passed": true,
+      "checks": {
+        "refusal": true,
+        "no_evidence_on_refusal": true
+      },
+      "response": {
+        "answer": "Specify energy or crypto, validation/calibration/test, and one horizon in hours or days.",
+        "citations": [],
+        "facts": {},
+        "refused": true,
+        "mode": "deterministic-evidence",
+        "trace": [],
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "estimated_cost_usd": null,
+        "provider": null,
+        "model": null,
+        "latency_ms": 0.315
+      }
+    }
+  ]
+}
