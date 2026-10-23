@@ -28,6 +28,8 @@ jobs:
           python -m pip install --no-deps -e .
       - name: Run regression tests
         run: python -m pytest
+      - name: Evaluate restricted research tools offline
+        run: python scripts/evaluate_analyst.py --output outputs/analyst-evaluation.json
       - name: Run a small rolling backtest
         run: python time_series_forecasting.py --dataset crypto --models naive arima prophet boosted --quick --output outputs/ci
       - name: Execute the case-study notebooks
@@ -37,5 +39,17 @@ jobs:
           name: forecasting-checks-python-${{ matrix.python-version }}
           path: |
             outputs/ci/
+            outputs/analyst-evaluation.json
             preview/
           retention-days: 7
+
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the serving image
+        run: docker build -t energy-forecasting:ci .
+      - name: Check non-root import and validated research evidence
+        run: |
+          docker run --rm energy-forecasting:ci python -c 'import os; from forecasting.api import app; assert os.getuid() == 10001; assert app.title == "Energy Forecasting API"'
+          docker run --rm energy-forecasting:ci python -c 'from forecasting.analyst import EvidenceStore; from pathlib import Path; answer=EvidenceStore(Path("/srv")).answer("Which model was best for energy at 6 hours on test?"); assert not answer["refused"]'
